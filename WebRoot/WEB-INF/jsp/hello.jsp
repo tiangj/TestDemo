@@ -14,6 +14,7 @@
     <input type="hidden" name="pageNum" value="1" />
     <input type="hidden" name="numPerPage" value="${model.numPerPage}" />
     <input type="hidden" name="orderField" value="${param.orderField}" />
+    <input type="hidden" name="orderDirection" value="${param.orderDirection}" />
 </form>
 
 
@@ -24,19 +25,6 @@
                 <tr>
                     <td>
                         我的客户：<input type="text" name="keyword" />
-                    </td>
-                    <td>
-                        <select class="combox" name="province">
-                            <option value="">所有省市</option>
-                            <option value="北京">北京</option>
-                            <option value="上海">上海</option>
-                            <option value="天津">天津</option>
-                            <option value="重庆">重庆</option>
-                            <option value="广东">广东</option>
-                        </select>
-                    </td> 
-                    <td>
-                        建档日期：<input type="text" class="date" readonly="true" />
                     </td>
                 </tr>
             </table>
@@ -64,8 +52,8 @@
 			<tr>
 				<th width="22"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
 				<th width="50" align="center">序号</th>
-				<th orderField="name" <c:if test='${param.orderField=="name" }'> class="${param.orderDirection}"</c:if>>名称</th>
-				<th orderField="code" <c:if test='${param.orderField=="code" }'> class="${param.orderDirection}"</c:if>>类型</th>
+				<th orderField="name" orderField="name" class="${param.orderField eq 'name' ? param.orderDirection : ''}">名称</th>
+				<th orderField="code" orderField="code" class="${param.orderField eq 'code' ? param.orderDirection : ''}">类型</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -79,23 +67,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	
-	<c:set var="currentPage" value="${pager.pageNum}" scope="request"/>
-	<c:set var="numPerPage" value="${pager.pageSize}" scope="request"/>
-	<c:set var="totalCount" value="${pager.total}" scope="request"/>
-    <div class="panelBar">
-        <div class="pages">
-            <span>显示</span>
-            <select name="pageSize" onchange="dwzPageBreak({targetType:'${targetType}',data:{numPerPage:this.value}})">
-                <c:forEach begin="10" end="40" step="10" varStatus="s">
-                    <option value="${s.index}" ${vo.pageSize eq s.index ? 'selected="selected"' : ''}>${s.index}</option>
-                </c:forEach>
-            </select>
 
-            <span>总共: ${vo.totalCount}条</span>
-        </div>
-
-        <div class="pagination" targetType="${targetType}" totalCount="${vo.totalCount}" numPerPage="${vo.pageSize}" pageNumShown="10" currentPage="${vo.pageNum}"></div>
-    </div>>
+    <c:import url="../pager/panelBar.jsp"></c:import>
 </div>
 

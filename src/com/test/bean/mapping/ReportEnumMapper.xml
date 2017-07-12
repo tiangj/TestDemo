@@ -188,11 +188,14 @@
     
     	<!-- 查询所有的举报类型；@author:yangzhou;@date:20170515 -->
       <when test="interface != null and interface=='getReportTypeList1'" >
-        	SELECT id,code,name FROM ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0 order by orderNum
+        	SELECT id,code,name FROM ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0
       </when>
-      
-    
     </choose>
+    <trim>
+      <if test="orderField!=null and orderField!=''">
+          ORDER  by ${orderField} ${orderDirection}
+      </if>
+    </trim>
   </select>
   <select id="selectListColumnsByInterface" parameterType="java.util.Map" resultType="java.util.Map" >
     <choose >

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.test.util.BaseConditionVO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,9 +27,11 @@ public class ReportServiceImpl implements IReportService {
 	private ReportEnumMapper reportEnumMapper;
 	
 	@Override
-	public Page<Map<String, Object>> reportList() {
+	public Page<Map<String, Object>> reportList(BaseConditionVO vo) {
 		Map<String, Object> example = new HashMap<String, Object>();
 		example.put("interface", "getReportTypeList1");
+		example.put("orderField",vo.getOrderField());
+		example.put("orderDirection",vo.getOrderDirection());
 		Page<Map<String, Object>> retList = reportEnumMapper.selectListColumnsByExample(example);
 		logger.info("retList:"+retList);
 		return retList;

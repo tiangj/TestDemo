@@ -22,7 +22,7 @@ public class ReportController {
 	public String reportList(BaseConditionVO vo, Model model){
 		 PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
 
-		 Page<Map<String, Object>> retList = reportService.reportList();
+		 Page<Map<String, Object>> retList = reportService.reportList(vo);
 		 model.addAttribute("pageList",retList);
 
 		 vo.setTotalCount(retList.getTotal());
