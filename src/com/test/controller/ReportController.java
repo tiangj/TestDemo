@@ -9,25 +9,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/report")
 public class ReportController {
 
-	@Autowired
-	private HttpServletRequest request;
 
 	@Autowired
 	private IReportService reportService;
 	
 	@RequestMapping("/list")
 	public String reportList(BaseConditionVO vo, Model model){
-		//获取每页的条数
-		 String numPerPage=request.getParameter("numPerPage");
-		 if(numPerPage!=null && numPerPage!=""){
-			 vo.setPageSize(Integer.valueOf(numPerPage));
+
+		 if(vo.getNumPerPage()!=null){
+			 vo.setPageSize(vo.getNumPerPage());
 		 }
 		 //执行分页的方法
 		 PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
