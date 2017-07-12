@@ -59,7 +59,7 @@
             <li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
         </ul>
     </div>
-    	<c:set var="searchRow" value="2" scope="request"/> <%--设置当前查询条件行数--%>
+    	<c:set var="searchRow" value="1" scope="request"/> <%--设置当前查询条件行数--%>
 	<table class="table" width="100%" layoutH="${searchRow==0 ? 87 : 113+25*searchRow}">
 		<thead>
 			<tr>
