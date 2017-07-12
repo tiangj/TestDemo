@@ -1,0 +1,55 @@
+ueditor
+
+如果ueditor都放在IXTManagement中
+	需要修改：
+		ueditor.config.js
+				window.UEDITOR_HOME_URL = "/IXTManagement/ueditor/";
+				
+			    window.UEDITOR_CONFIG = {
+			        //为编辑器实例添加一个路径，这个不能被注释
+			        UEDITOR_HOME_URL: URL
+			        // 服务器统一请求接口路径
+			        , serverUrl: URL + "jsp/controller.jsp"
+			        
+		controller.jsp
+			    //1:本地，2:测试机，3:生产机
+			    int environment = 1;
+				//默认本地
+				String rootPath = application.getRealPath("/");
+			    if(environment==2){//测试环境：(ixtres的mount地址)
+			    	rootPath = "/storage/Webapp/ixt_res/";
+			    }else if(environment==3){//生产环境：(ixtres的mount地址)
+			    	rootPath = "/workspace/storage/Webapp/ixt_res/";
+			    }else{// 默认本地环境：(tomcat根路径)
+			    	rootPath = application.getRealPath("/");
+			    }
+
+
+如果ueditor分开放，文件放在IXTManagement, 上传接口放在IXTCoreMiddleware
+	IXTManagement需要修改：
+		ueditor.config.js
+				window.UEDITOR_HOME_URL = "/IXTManagement/ueditor/";
+				
+			    window.UEDITOR_CONFIG = {
+			        //为编辑器实例添加一个路径，这个不能被注释
+			        UEDITOR_HOME_URL: URL
+			        // 服务器统一请求接口路径
+			        , serverUrl: "http://127.0.0.1/IXTCoreMiddleware/ueditor/jsp/controller.jsp"
+
+			        
+	IXTCoreMiddleware添加
+		ueditor/jsp/config.json
+		ueditor/jsp/controller.jsp
+		controller.jsp
+			    //1:本地，2:测试机，3:生产机
+			    int environment = 1;
+				//默认本地
+				String rootPath = application.getRealPath("/");
+			    if(environment==2){//测试环境：(ixtres的mount地址)
+			    	rootPath = "/storage/Webapp/ixt_res/";
+			    }else if(environment==3){//生产环境：(ixtres的mount地址)
+			    	rootPath = "/workspace/storage/Webapp/ixt_res/";
+			    }else{// 默认本地环境：(tomcat根路径)
+			    	rootPath = application.getRealPath("/");
+			    }
+			        
