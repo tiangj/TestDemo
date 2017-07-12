@@ -12,6 +12,7 @@
     <input type="hidden" name="status" value="${param.status}">
     <input type="hidden" name="keywords" value="${param.keywords}" />
     <input type="hidden" name="pageNum" value="1" />
+    <input type="hidden" name="pageSize" value="${pageSize}" />
     <input type="hidden" name="numPerPage" value="${model.numPerPage}" />
     <input type="hidden" name="orderField" value="${param.orderField}" />
     <input type="hidden" name="orderDirection" value="${param.orderDirection}" />

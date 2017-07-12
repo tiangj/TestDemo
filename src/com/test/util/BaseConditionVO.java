@@ -14,6 +14,7 @@ public class BaseConditionVO {
 	private String type;
 	private Date startDate;
 	private Date endDate;
+	private Integer numPerPage;
 	
 	public String getType() {
 		return "".equals(type) ? null : type;
@@ -82,5 +83,13 @@ public class BaseConditionVO {
 	public int getStartIndex() {
 		int pageNum = this.getPageNum() > 0 ? this.getPageNum() - 1 : 0;
 		return pageNum * this.getPageSize();
+	}
+
+	public Integer getNumPerPage() {
+		return numPerPage;
+	}
+
+	public void setNumPerPage(Integer numPerPage) {
+		this.numPerPage = numPerPage;
 	}
 }
