@@ -6,7 +6,7 @@ public class BaseConditionVO {
 	public final static int PAGE_SHOW_COUNT = 20;
 	private int pageNum = 1;
 	private int pageSize = 0;
-	private int totalCount = 0;
+	private long totalCount = 0;
 	private String orderField;
 	private String orderDirection;
 	private String keywords;
@@ -64,11 +64,11 @@ public class BaseConditionVO {
 		this.orderDirection = orderDirection;
 	}
 	
-	public int getTotalCount() {
+	public long getTotalCount() {
 		return totalCount;
 	}
 
-	public void setTotalCount(int totalCount) {
+	public void setTotalCount(long totalCount) {
 		this.totalCount = totalCount;
 	}
 	

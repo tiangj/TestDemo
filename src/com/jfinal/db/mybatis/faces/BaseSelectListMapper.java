@@ -1,5 +1,8 @@
 package com.jfinal.db.mybatis.faces;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +14,8 @@ public interface BaseSelectListMapper extends Serializable {
 	 * @param example {"interface":"",...}
 	 * @return 部分字段 List
 	 */
-	List<Map<String, Object>> selectListColumnsByExample(Map<String, Object> example);
+	Page<Map<String, Object>> selectListColumnsByExample(Map<String, Object> example);
+
 
 	/**
 	 * 按条件查询接口列表，在xml中自定义完整的SQL语句

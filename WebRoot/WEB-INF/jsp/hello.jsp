@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<form id="pagerForm" method="post" action="demo_page1.html">
+<form id="pagerForm" method="post" action="report/list.do">
     <input type="hidden" name="status" value="${param.status}">
     <input type="hidden" name="keywords" value="${param.keywords}" />
     <input type="hidden" name="pageNum" value="1" />
@@ -18,7 +18,7 @@
 
 
 <div class="pageHeader">
-    <form onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post">
+    <form onsubmit="return navTabSearch(this);" action="report/list.do" method="post">
         <div class="searchBar">
             <table class="searchContent">
                 <tr>
@@ -43,7 +43,6 @@
             <div class="subBar">
                 <ul>
                     <li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
-                    <li><a class="button" href="demo_page6.html" target="dialog" mask="true" title="查询框"><span>高级检索</span></a></li>
                 </ul>
             </div>
         </div>
@@ -87,17 +86,16 @@
     <div class="panelBar">
         <div class="pages">
             <span>显示</span>
-            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-                <option value="200">200</option>
+            <select name="pageSize" onchange="dwzPageBreak({targetType:'${targetType}',data:{numPerPage:this.value}})">
+                <c:forEach begin="10" end="40" step="10" varStatus="s">
+                    <option value="${s.index}" ${vo.pageSize eq s.index ? 'selected="selected"' : ''}>${s.index}</option>
+                </c:forEach>
             </select>
-            <span>条，共${totalCount}条</span>
+
+            <span>总共: ${vo.totalCount}条</span>
         </div>
 
-        <div class="pagination" targetType="navTab" totalCount="200" numPerPage="20" pageNumShown="10" currentPage="1"></div>
-
-    </div>
+        <div class="pagination" targetType="${targetType}" totalCount="${vo.totalCount}" numPerPage="${vo.pageSize}" pageNumShown="10" currentPage="${vo.pageNum}"></div>
+    </div>>
 </div>
 

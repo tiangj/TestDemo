@@ -41,6 +41,8 @@
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描mapping.xml文件 -->
         <property name="mapperLocations" value="classpath:com/test/bean/mapping/*.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+
     </bean>
 
     <!-- service接口所在包名，Spring会自动查找其下的类 -->
@@ -77,5 +79,7 @@
         <aop:advisor pointcut-ref="transactionPointcut"
                      advice-ref="transactionAdvice" />
     </aop:config>
+
+
 
 </beans>

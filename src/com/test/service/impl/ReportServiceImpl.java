@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,10 +26,10 @@ public class ReportServiceImpl implements IReportService {
 	private ReportEnumMapper reportEnumMapper;
 	
 	@Override
-	public List<Map<String, Object>> reportList() {
+	public Page<Map<String, Object>> reportList() {
 		Map<String, Object> example = new HashMap<String, Object>();
 		example.put("interface", "getReportTypeList1");
-		List<Map<String, Object>> retList = reportEnumMapper.selectListColumnsByExample(example);
+		Page<Map<String, Object>> retList = reportEnumMapper.selectListColumnsByExample(example);
 		logger.info("retList:"+retList);
 		return retList;
 	}

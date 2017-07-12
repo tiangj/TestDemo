@@ -1,5 +1,8 @@
 package com.test.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,5 +16,5 @@ public interface IReportService {
 	 *@return_type List<Map<String,Object>>
 	 *@return
 	 */
-	public List<Map<String, Object>> reportList();
+	Page<Map<String, Object>> reportList();
 }

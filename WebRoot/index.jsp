@@ -101,7 +101,7 @@ $(function(){
 
 <body scroll="no">
 	<div id="layout">
-		<c:set var="headerName" value="IXT后台管理系统" scope="request"/> <%--设置当前headerName--%>
+		<c:set var="headerName" value="JUI后台管理系统" scope="request"/> <%--设置当前headerName--%>
 		<c:import url="/resources/_frag/pager/headerDiv.jsp"/>
 
 		<div id="leftside">
@@ -119,15 +119,9 @@ $(function(){
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
 							<li>
-								<a>榜单管理</a>
+								<a>测试</a>
 								<ul>
-									<li>
-										<a>测试</a>
-										<ul>
-											<li><a href="report/list.do" target="navTab" rel="page_TradeHallScore">测试</a></li>
-										</ul>
-									</li>
-									
+									<li><a href="report/list.do" target="navTab" rel="page_Report">测试</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -154,11 +148,16 @@ $(function(){
 				</ul>
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
-						<!-- <div class="accountInfo">
+						 <div class="accountInfo">
 							<div style="text-align: center;">
-								<span style="font-size:20px;width:100%;line-height: 40px;margin-bottom: 0px;">欢迎使用########后台系统！</span>
+								<span style="font-size:20px;width:100%;line-height: 40px;margin-bottom: 0px;">欢迎使用JUI测试后台系统！</span>
 							</div>
-						</div> -->
+						</div>
+						<div class="pageFormContent" layoutH="80" style="margin-right:230px;text-align: center">
+
+									哈哈
+
+						</div>
 					</div>
 				</div>
 			</div>

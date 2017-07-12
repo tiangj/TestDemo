@@ -188,7 +188,7 @@
     
     	<!-- 查询所有的举报类型；@author:yangzhou;@date:20170515 -->
       <when test="interface != null and interface=='getReportTypeList1'" >
-        	SELECT id,code,name FROM ixt_edge_db.ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0 order by orderNum  
+        	SELECT id,code,name FROM ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0 order by orderNum
       </when>
       
     
@@ -213,13 +213,13 @@
       
       <!-- 查询所有的举报类型；@author:yangzhou;@date:20170515 -->
       <when test="interface != null and interface=='getReportTypeList'" >
-        	SELECT id,code,name FROM ixt_edge_db.ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0 order by orderNum  
+        	SELECT id,code,name FROM ixt_report_enum WHERE pauseFlag = 0 and deleteFlag = 0 order by orderNum
       </when>
       
       
       <!-- 根据id查询所有的举报信息；@author:yangzhou;@date:20170515 -->
       <when test="interface != null and interface=='selectReportEnumList'" >
-        SELECT r.id,r.`code`,r.name FROM ixt_edge_db.ixt_report_enum as r where r.id in (${ids}) and r.pauseFlag = 0 and r.deleteFlag = 0
+        SELECT r.id,r.`code`,r.name FROM ixt_report_enum as r where r.id in (${ids}) and r.pauseFlag = 0 and r.deleteFlag = 0
       </when>
       
       
