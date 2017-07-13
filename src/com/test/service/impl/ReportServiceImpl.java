@@ -33,6 +33,7 @@ public class ReportServiceImpl implements IReportService {
 		example.put("interface", "getReportTypeList1");
 		example.put("orderField",vo.getOrderField());
 		example.put("orderDirection",vo.getOrderDirection());
+		example.put("keywords",vo.getKeywords());
 		Page<Map<String, Object>> retList = reportEnumMapper.selectListColumnsByExample(example);
 		logger.info("retList:"+retList);
 		return retList;
@@ -40,6 +41,21 @@ public class ReportServiceImpl implements IReportService {
 
 	public Integer save(ReportEnum reportEnum){
 		return reportEnumMapper.insert(reportEnum);
+	}
+
+	@Override
+	public Integer del(String id) {
+		return reportEnumMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public ReportEnum getByID(String id) {
+		return reportEnumMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public Integer update(ReportEnum reportEnum) {
+		return reportEnumMapper.updateByPrimaryKey(reportEnum);
 	}
 
 }

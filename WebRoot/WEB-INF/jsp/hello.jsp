@@ -25,7 +25,7 @@
             <table class="searchContent">
                 <tr>
                     <td>
-                        我的客户：<input type="text" name="keyword" />
+                        名称：<input type="text" name="keywords"  value="${name}"/>
                     </td>
                 </tr>
             </table>
@@ -40,10 +40,10 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="report/add.do" target="navTab"  rel="page_Report"><span>添加</span></a></li>
-            <li><a class="delete" href="demo/common/ajaxDone.html?uid={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-            <li><a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab"><span>修改</span></a></li>
-            <li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
+            <li><a class="add" href="report/add.do" target="dialog"  rel="page_Report_add" title="添加"><span>添加</span></a></li>
+            <li><a class="delete" href="report/del.do?id={sid_list}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+            <li><a class="edit" href="report/edit.do?id={sid_list}" target="dialog"><span>修改</span></a></li>
+            <%--<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>--%>
         </ul>
     </div>
     	<c:set var="searchRow" value="1" scope="request"/> <%--设置当前查询条件行数--%>

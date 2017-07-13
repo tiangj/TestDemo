@@ -192,6 +192,9 @@
       </when>
     </choose>
     <trim>
+      <if test="keywords!=null and keywords!=''">
+        and name like concat('%',#{keywords},'%')
+      </if>
       <if test="orderField!=null and orderField!=''">
           ORDER  by ${orderField} ${orderDirection}
       </if>

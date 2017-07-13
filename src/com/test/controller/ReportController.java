@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +23,7 @@ public class ReportController extends BaseController{
 	
 	@RequestMapping("/list")
 	public String reportList(BaseConditionVO vo, Model model){
+		 Map<String,Object> map=new HashMap<String, Object>();
 
 		 if(vo.getNumPerPage()!=null){
 			 vo.setPageSize(vo.getNumPerPage());
@@ -65,8 +64,33 @@ public class ReportController extends BaseController{
 	public ModelAndView save(ReportEnum reportEnum){
 		int ret=reportService.save(reportEnum);
 		if(ret>0){
-			return ajaxDoneSuccess(getMessage("msg.operation.success"));
+			return  ajaxDoneSuccess("成功");
 		}
-		return ajaxDoneError(getMessage("msg.operation.failure"));
+		return ajaxDoneError("失败");
+	}
+
+	@RequestMapping("del")
+	public ModelAndView del(String id){
+		Integer ret=reportService.del(id);
+		if(ret>0){
+			return  ajaxDoneSuccess("成功");
+		}
+		return ajaxDoneError("失败");
+	}
+
+	@RequestMapping("edit")
+	public String edit(Model model,String id){
+		ReportEnum reportEnum=reportService.getByID(id);
+		model.addAttribute("instance",reportEnum);
+		return "edit";
+	}
+
+	@RequestMapping("update")
+	public ModelAndView update(ReportEnum reportEnum){
+		Integer ret=reportService.update(reportEnum);
+		if(ret>0){
+			return  ajaxDoneSuccess("成功");
+		}
+		return ajaxDoneError("失败");
 	}
 }
