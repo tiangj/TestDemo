@@ -28,4 +28,16 @@
             <!--</list>-->
         <!--</property>-->
     <!--</bean>-->
+
+    <!-- MessageResolve -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>web.messages</value>
+                <value>biz.messages</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>

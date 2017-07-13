@@ -2,6 +2,7 @@ package com.test.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.test.bean.ReportEnum;
 import com.test.util.BaseConditionVO;
 
 import java.util.List;
@@ -18,4 +19,11 @@ public interface IReportService {
 	 *@return
 	 */
 	Page<Map<String, Object>> reportList(BaseConditionVO vo);
+
+	/**
+	 * 保存的方法
+	 * @param reportEnum
+	 * @return
+	 */
+	Integer save(ReportEnum reportEnum);
 }

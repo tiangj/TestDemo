@@ -12,9 +12,9 @@ public class ReportEnum extends BaseBean {
 
     private Integer orderNum;
 
-    private Boolean pauseFlag;
+    private Boolean pauseFlag=false;
 
-    private Integer clickedTotalNum;
+    private Integer clickedTotalNum=0;
 
     private String remark;
 

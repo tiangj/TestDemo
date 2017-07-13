@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.test.bean.ReportEnum;
 import com.test.util.BaseConditionVO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class ReportServiceImpl implements IReportService {
 		Page<Map<String, Object>> retList = reportEnumMapper.selectListColumnsByExample(example);
 		logger.info("retList:"+retList);
 		return retList;
+	}
+
+	public Integer save(ReportEnum reportEnum){
+		return reportEnumMapper.insert(reportEnum);
 	}
 
 }

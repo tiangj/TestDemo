@@ -18,7 +18,7 @@ public class BaseBean extends UID {
     protected Date updateDate = new Date();
 
     //默认为正常
-    protected Boolean deleteFlag;
+    protected Boolean deleteFlag=false;
     
 	public String getCreateUser() {
 		return createUser;
