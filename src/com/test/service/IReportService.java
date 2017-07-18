@@ -8,7 +8,7 @@ import com.test.util.BaseConditionVO;
 import java.util.List;
 import java.util.Map;
 
-public interface IReportService {
+public interface IReportService extends IBaseService<ReportEnum> {
 
 	/**
 	 * 
@@ -25,14 +25,14 @@ public interface IReportService {
 	 * @param reportEnum
 	 * @return
 	 */
-	Integer save(ReportEnum reportEnum);
+	//Integer save(ReportEnum reportEnum);
 
 	/**
 	 * 删除的方法
 	 * @param id
 	 * @return
 	 */
-	Integer del(String id);
+	//Integer del(String id);
 
 	/**
 	 * 根据id获取数据
@@ -46,5 +46,5 @@ public interface IReportService {
 	 * @param reportEnum
 	 * @return
 	 */
-	Integer update(ReportEnum reportEnum);
+	//Integer update(ReportEnum reportEnum);
 }

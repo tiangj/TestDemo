@@ -2,32 +2,49 @@ package com.test.service.impl;
 
 
 import com.jfinal.db.mybatis.faces.BaseSupportMapper;
-import com.jfinal.mybatis.bean.BaseBean;
+import com.test.bean.BaseBean;
 import com.test.service.IBaseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by admin on 2017/7/14.
  */
 public class BaseServiceImpl<T extends BaseBean,M extends BaseSupportMapper> implements IBaseService<T> {
 
-    private Class<M> mClass;
+    @Autowired
+    private M m;
 
-    private Class<T> tClass;
-
-    public BaseServiceImpl(Class<M> mClass, Class<T> tClass) {
-        this.mClass = mClass;
-        this.tClass = tClass;
+    @Transactional(rollbackFor =Exception.class)
+    @Override
+    public Integer save(T t) {
+        try {
+            return m.insertSelective(t);
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
     }
 
+    @Transactional(rollbackFor =Exception.class)
     @Override
-    public Integer save(Class<T> tClass) {
+    public Integer update(T t) {
         try {
-            return mClass.newInstance().insertSelective(tClass);
-        } catch (InstantiationException e) {
+            return m.updateByPrimaryKey(t);
+        }catch (Exception e){
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            return 0;
         }
-        return null;
+    }
+
+    @Transactional(rollbackFor =Exception.class)
+    @Override
+    public Integer del(String id) {
+        try {
+            return m.deleteByPrimaryKey(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

@@ -20,13 +20,17 @@ import com.test.bean.mapper.ReportEnumMapper;
 import com.test.service.IReportService;
 
 @Service("reportService")
-public class ReportServiceImpl implements IReportService {
+public class ReportServiceImpl extends  BaseServiceImpl<ReportEnum,ReportEnumMapper> implements IReportService {
 
 	private static Logger logger = Logger.getLogger(ReportServiceImpl.class);
 	
-	@Autowired
 	private ReportEnumMapper reportEnumMapper;
-	
+
+	@Autowired
+	public ReportServiceImpl(ReportEnumMapper reportEnumMapper) {
+		this.reportEnumMapper=reportEnumMapper;
+	}
+
 	@Override
 	public Page<Map<String, Object>> reportList(BaseConditionVO vo) {
 		Map<String, Object> example = new HashMap<String, Object>();
@@ -39,23 +43,23 @@ public class ReportServiceImpl implements IReportService {
 		return retList;
 	}
 
-	public Integer save(ReportEnum reportEnum){
-		return reportEnumMapper.insert(reportEnum);
-	}
+//	public Integer save(ReportEnum reportEnum){
+//		return reportEnumMapper.insert(reportEnum);
+//	}
 
-	@Override
-	public Integer del(String id) {
-		return reportEnumMapper.deleteByPrimaryKey(id);
-	}
+//	@Override
+//	public Integer del(String id) {
+//		return reportEnumMapper.deleteByPrimaryKey(id);
+//	}
 
 	@Override
 	public ReportEnum getByID(String id) {
 		return reportEnumMapper.selectByPrimaryKey(id);
 	}
 
-	@Override
-	public Integer update(ReportEnum reportEnum) {
-		return reportEnumMapper.updateByPrimaryKey(reportEnum);
-	}
+//	@Override
+//	public Integer update(ReportEnum reportEnum) {
+//		return reportEnumMapper.updateByPrimaryKey(reportEnum);
+//	}
 
 }

@@ -68,6 +68,6 @@
 		</tbody>
 	</table>
 
-    <c:import url="../pager/panelBar.jsp"></c:import>
+    <c:import url="../../pager/panelBar.jsp"></c:import>
 </div>
 

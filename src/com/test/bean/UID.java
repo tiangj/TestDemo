@@ -1,4 +1,4 @@
-package com.jfinal.mybatis.bean;
+package com.test.bean;
 
 import java.io.Serializable;
 

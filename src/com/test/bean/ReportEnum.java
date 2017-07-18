@@ -1,7 +1,5 @@
 package com.test.bean;
 
-import com.jfinal.mybatis.bean.BaseBean;
-
 
 public class ReportEnum extends BaseBean {
     private static final long serialVersionUID = 1L;

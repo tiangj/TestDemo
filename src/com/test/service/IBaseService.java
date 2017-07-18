@@ -1,7 +1,6 @@
 package com.test.service;
 
-
-import com.jfinal.mybatis.bean.BaseBean;
+import com.test.bean.BaseBean;
 
 /**
  * Created by admin on 2017/7/14.
@@ -10,8 +9,22 @@ public interface IBaseService<T extends BaseBean> {
 
     /**
      * 保存的方法
-     * @param tClass
+     * @param t
      * @return
      */
-    Integer save(Class<T> tClass);
+    Integer save(T t);
+
+    /**
+     * 更新操作
+     * @param t
+     * @return
+     */
+    Integer update(T t);
+
+    /**
+     * 删除的方法
+     * @param id
+     * @return
+     */
+    Integer del(String id);
 }

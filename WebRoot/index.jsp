@@ -121,7 +121,7 @@ $(function(){
 							<li>
 								<a>测试</a>
 								<ul>
-									<li><a href="report/list.do" target="navTab" rel="page_Report">测试</a></li>
+									<li><a href="report/list.do?position=report" target="navTab" rel="page_Report">测试</a></li>
 								</ul>
 							</li>
 						</ul>

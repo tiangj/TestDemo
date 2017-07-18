@@ -1,5 +1,7 @@
 package com.jfinal.mybatis.bean;
 
+import com.test.bean.BaseBean;
+
 /**
  * 统计字段bean
  * @author mengxin 2016年8月25日 上午10:22:00

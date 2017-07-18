@@ -11,7 +11,7 @@
                         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
                         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 自动扫描 -->
-    <context:component-scan base-package="com.bean.*" />
+    <context:component-scan base-package="com.test.*" />
     <!-- 引入配置文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -63,9 +63,9 @@
     <!-- 拦截器方式配置事物 -->
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="add*" propagation="REQUIRED"  isolation="REPEATABLE_READ" rollback-for="Exception"/>
+            <tx:method name="save*" propagation="REQUIRED"  isolation="REPEATABLE_READ" rollback-for="Exception"/>
             <tx:method name="update*" propagation="REQUIRED"   isolation="REPEATABLE_READ" rollback-for="Exception"/>
-            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="del*" propagation="REQUIRED" />
             <tx:method name="remove*" propagation="REQUIRED" />
             <tx:method name="recovery*" propagation="REQUIRED" />
             <tx:method name="get*" propagation="SUPPORTS" />

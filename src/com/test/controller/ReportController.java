@@ -3,6 +3,7 @@ package com.test.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.test.bean.ReportEnum;
+import com.test.service.IBaseService;
 import com.test.service.IReportService;
 import com.test.util.BaseConditionVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/report")
-public class ReportController extends BaseController{
+public class ReportController extends BaseController<ReportEnum>{
+
+	private IReportService reportService;
 
 	@Autowired
-	private IReportService reportService;
-	
+	public ReportController(IReportService reportService) {
+		super(reportService);
+		this.reportService=reportService;
+	}
+
 	@RequestMapping("/list")
 	public String reportList(BaseConditionVO vo, Model model){
 		 Map<String,Object> map=new HashMap<String, Object>();
@@ -48,7 +54,7 @@ public class ReportController extends BaseController{
 		 //返回整个分页对象
 		 model.addAttribute("vo", vo);
 
-		 return "hello";
+		 return "report/hello";
 	}
 
 	/**
@@ -57,40 +63,14 @@ public class ReportController extends BaseController{
 	 */
 	@RequestMapping("add")
 	public String add(){
-		return "add";
-	}
-
-	@RequestMapping("save")
-	public ModelAndView save(ReportEnum reportEnum){
-		int ret=reportService.save(reportEnum);
-		if(ret>0){
-			return  ajaxDoneSuccess("成功");
-		}
-		return ajaxDoneError("失败");
-	}
-
-	@RequestMapping("del")
-	public ModelAndView del(String id){
-		Integer ret=reportService.del(id);
-		if(ret>0){
-			return  ajaxDoneSuccess("成功");
-		}
-		return ajaxDoneError("失败");
+		return "report/add";
 	}
 
 	@RequestMapping("edit")
 	public String edit(Model model,String id){
 		ReportEnum reportEnum=reportService.getByID(id);
 		model.addAttribute("instance",reportEnum);
-		return "edit";
+		return "report/edit";
 	}
 
-	@RequestMapping("update")
-	public ModelAndView update(ReportEnum reportEnum){
-		Integer ret=reportService.update(reportEnum);
-		if(ret>0){
-			return  ajaxDoneSuccess("成功");
-		}
-		return ajaxDoneError("失败");
-	}
 }
