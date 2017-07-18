@@ -27,4 +27,11 @@ public interface IBaseService<T extends BaseBean> {
      * @return
      */
     Integer del(String id);
+
+    /**
+     * 根据id获取对象的属性
+     * @param id
+     * @return
+     */
+    T getById(String id);
 }

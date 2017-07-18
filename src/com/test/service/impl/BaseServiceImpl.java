@@ -47,4 +47,9 @@ public class BaseServiceImpl<T extends BaseBean,M extends BaseSupportMapper> imp
             return 0;
         }
     }
+
+    @Override
+    public T getById(String id) {
+        return m.selectByPrimaryKey(id);
+    }
 }

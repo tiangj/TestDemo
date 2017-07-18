@@ -43,23 +43,9 @@ public class ReportServiceImpl extends  BaseServiceImpl<ReportEnum,ReportEnumMap
 		return retList;
 	}
 
-//	public Integer save(ReportEnum reportEnum){
-//		return reportEnumMapper.insert(reportEnum);
-//	}
-
-//	@Override
-//	public Integer del(String id) {
-//		return reportEnumMapper.deleteByPrimaryKey(id);
-//	}
-
 	@Override
 	public ReportEnum getByID(String id) {
 		return reportEnumMapper.selectByPrimaryKey(id);
 	}
-
-//	@Override
-//	public Integer update(ReportEnum reportEnum) {
-//		return reportEnumMapper.updateByPrimaryKey(reportEnum);
-//	}
 
 }

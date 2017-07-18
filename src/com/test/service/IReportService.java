@@ -21,30 +21,11 @@ public interface IReportService extends IBaseService<ReportEnum> {
 	Page<Map<String, Object>> reportList(BaseConditionVO vo);
 
 	/**
-	 * 保存的方法
-	 * @param reportEnum
-	 * @return
-	 */
-	//Integer save(ReportEnum reportEnum);
-
-	/**
-	 * 删除的方法
-	 * @param id
-	 * @return
-	 */
-	//Integer del(String id);
-
-	/**
 	 * 根据id获取数据
 	 * @param id
 	 * @return
 	 */
 	ReportEnum getByID(String id);
 
-	/**
-	 * 更新操作
-	 * @param reportEnum
-	 * @return
-	 */
-	//Integer update(ReportEnum reportEnum);
+
 }
