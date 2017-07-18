@@ -1,7 +1,6 @@
 package com.jfinal.db.mybatis.faces;
 
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageInfo;
 
 import java.io.Serializable;
 import java.util.List;
