@@ -58,26 +58,5 @@ public class BaseController<T extends BaseBean> {
 	protected ModelAndView ajaxDoneError(String message) {
 		return ajaxDone(300, message, "");
 	}
-	protected String getMessage(String code) {
-		return this.getMessage(code, new Object[] {});
-	}
-
-	protected String getMessage(String code, Object arg0) {
-		return getMessage(code, new Object[] { arg0 });
-	}
-
-	protected String getMessage(String code, Object arg0, Object arg1) {
-		return getMessage(code, new Object[] { arg0, arg1 });
-	}
-
-	protected String getMessage(String code, Object arg0, Object arg1,
-			Object arg2) {
-		return getMessage(code, new Object[] { arg0, arg1, arg2 });
-	}
-
-	protected String getMessage(String code, Object arg0, Object arg1,
-			Object arg2, Object arg3) {
-		return getMessage(code, new Object[] { arg0, arg1, arg2, arg3 });
-	}
 
 }

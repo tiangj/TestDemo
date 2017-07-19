@@ -1,23 +1,16 @@
 package com.test.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageInfo;
 import com.test.bean.ReportEnum;
+import com.test.bean.mapper.ReportEnumMapper;
+import com.test.service.IReportService;
 import com.test.util.BaseConditionVO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-
 import org.springframework.stereotype.Service;
 
-import com.test.service.impl.ReportServiceImpl;
-import com.test.bean.mapper.ReportEnumMapper;
-import com.test.service.IReportService;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service("reportService")
 public class ReportServiceImpl extends  BaseServiceImpl<ReportEnum,ReportEnumMapper> implements IReportService {

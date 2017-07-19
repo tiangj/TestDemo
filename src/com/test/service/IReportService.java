@@ -1,11 +1,9 @@
 package com.test.service;
 
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageInfo;
 import com.test.bean.ReportEnum;
 import com.test.util.BaseConditionVO;
 
-import java.util.List;
 import java.util.Map;
 
 public interface IReportService extends IBaseService<ReportEnum> {
